@@ -1,6 +1,4 @@
-## webpack兼容IE8的项目开发的脚手架，主要是为了使用ES6
-
-## 使用步骤
+## Usage
 
 ```sh
 npm i
