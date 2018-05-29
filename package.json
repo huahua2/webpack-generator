@@ -4,9 +4,9 @@
   "description": "webpack脚手架",
   "main": "index.js",
   "scripts": {
-    "start": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "webpack-dev-server --open"
+    "build": "webpack",
+    "server": "set WEBPACK_ENV=dev && webpack-dev-server",
+    "ie8-server": "set WEBPACK_ENV=ie8 && webpack-dev-server"
   },
   "author": "HuaHua",
   "license": "ISC",
