@@ -1,0 +1,2 @@
+webpack-generrator是webpack兼容IE8的项目开发的脚手架
+主要是为了使用ES6
