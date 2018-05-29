@@ -7,8 +7,11 @@ class StdInfo {
         this.age = 30;
     }
     //定义在类中的方法不需要添加function
-    getNames(){
-        alert("name："+this.name);
-    }
+    getNames() {
+        let self=this;
+        $("#btn").click(function () {
+            alert("name：" + self.name);
+        })
+}
 }
 export default StdInfo;
