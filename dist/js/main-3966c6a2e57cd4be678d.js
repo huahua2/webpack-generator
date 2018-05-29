@@ -83,11 +83,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 /**
  * Created by HuaHua on 18/5/28.
  */
-// const test = require('./test.js');
-
-
+__webpack_require__(4);
 alert(_test2["default"].data);
-// document.querySelector("#root").appendChild(bar());
 var s = new _stu2["default"]();
 s.getNames();
 
@@ -103,7 +100,7 @@ exports.__esModule = true;
  * Created by HuaHua on 18/5/28.
  */
 exports["default"] = {
-  data: 'hello'
+  data: 'hello88'
 };
 
 /***/ }),
@@ -128,7 +125,7 @@ var StdInfo = function () {
     function StdInfo() {
         (0, _classCallCheck3["default"])(this, StdInfo);
 
-        this.name = "job0";
+        this.name = "job";
         this.age = 30;
     }
     //定义在类中的方法不需要添加function
@@ -157,6 +154,12 @@ exports["default"] = function (instance, Constructor) {
     throw new TypeError("Cannot call a class as a function");
   }
 };
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

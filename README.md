@@ -2,7 +2,12 @@
 
 ```sh
 npm i
-npm server ,ie8及以下环境运行npm run ie8-server
+npm run server ,ie8及以下环境运行npm run ie8-server
+```
+
+### Production build
+```sh
+npm run build
 ```
 
 ## Notes

@@ -4,15 +4,17 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 
 let screw_ie8 = process.env.WEBPACK_ENV.indexOf('ie8')==-1 ;//ie8环境要关掉模块热更新，不然会报错
-const jscompress=false;
-
+let js_css_compress=process.env.WEBPACK_ENV.indexOf('pro')>-1;//生成环境js和css压缩
+console.log("环境"+screw_ie8);
 let plugins = [
     new HtmlWebpackPlugin({
     template: './index.html'
     }),
+    new ExtractTextPlugin("css/[name]-[hash].css")
 ];
 
 // HMR doesn't work with IE8
@@ -21,7 +23,7 @@ if(screw_ie8) {
 }
 
 //开启js压缩
-if(jscompress){
+if(js_css_compress){
     plugins.push(
         new webpack.optimize.UglifyJsPlugin({
             mangle: {
@@ -40,6 +42,7 @@ if(jscompress){
             }
          })
     )
+    plugins.push(new webpack.optimize.OccurrenceOrderPlugin())
 }
 
 
@@ -47,7 +50,7 @@ module.exports = {
     entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'js/[name]-[hash].js'
     },
     devServer: {
         contentBase: path.join(__dirname, "dist"),
@@ -73,6 +76,24 @@ module.exports = {
                 test: /\.js$/,
                 enforce: "post",
                 loader: "es3ify-loader"
+            },
+            // {
+            //     test: /\.css$/,
+            //     loaders: ['style-loader', 'css-loader'],
+            // }
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options:{
+                                minimize: js_css_compress //css压缩
+                            }
+                        }
+                    ]
+                })
             }
         ]
     },

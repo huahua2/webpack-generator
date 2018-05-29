@@ -4,9 +4,9 @@
   "description": "webpack脚手架",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "server": "set WEBPACK_ENV=dev && webpack-dev-server",
-    "ie8-server": "set WEBPACK_ENV=ie8 && webpack-dev-server"
+    "build": "set WEBPACK_ENV=pro && webpack",
+    "server": "set WEBPACK_ENV=dev &&  webpack-dev-server --open",
+    "ie8-server": "set WEBPACK_ENV=ie8 && webpack && webpack-dev-server --open"
   },
   "author": "HuaHua",
   "license": "ISC",
@@ -17,6 +17,9 @@
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.0",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "style-loader": "^0.21.0",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1"
   },
